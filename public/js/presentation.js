@@ -65,12 +65,12 @@
 
     // Initialize canvas
     _canvas = document.getElementById(_CANVAS_ID);
-    if (_canvas && _user_type === 'presenter') {
+    /*if (_canvas && _user_type === 'presenter') {
       _canvas.addEventListener('mousedown', function (e) {_dragStart(e);}, false);
       _canvas.addEventListener('mousemove', function (e) {_dragging(e);}, false);
       document.addEventListener('mouseup', function (e) {_dragEnd(e);}, false);
     }
-    _initCanvas(width, height);
+    _initCanvas(width, height);*/
 
     // Initialize graph
     _graphLeft = document.getElementById(_GRAPH_LEFT_ID);
