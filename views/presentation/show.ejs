@@ -49,9 +49,12 @@
     <script src='/js/utils.js'></script>
     <script src='/js/presentation.js?type=<%= user_type %>&user_id=<%= user_id %>&presentation_id=<%= presentation_id %>'></script>
     <script type="text/javascript">
-      // adjuest scale
-      var scale = window.screen.width / 930;
-      document.body.style.zoom = scale;
+      ua = navigator.userAgent;
+      if ((ua.indexOf('iPhone') > 0 || ua.indexOf('iPad') > 0) || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0) {
+        // adjuest scale
+        var scale = window.screen.width / 930;
+        document.body.style.zoom = scale;
+      }
     </script>
   </body>
 </html>
