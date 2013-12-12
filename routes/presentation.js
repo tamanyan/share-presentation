@@ -7,7 +7,7 @@ var model = require('../model');
 
 var Presentation = model.Presentation;
 
-var markdown = require('markdown');
+var marked = require('marked');
 
 exports.create = function (req, res) {
   var user_id,
@@ -140,7 +140,7 @@ exports.show = function (req, res) {
       presentation_data = presentation.data;
       // Convert markdown to HTML
       if (presentation_data) {
-        presentation_data = markdown.parse(presentation_data);
+        presentation_data = marked(presentation_data);
         presentation_data = htmlToSlide(presentation_data);
       }
       // Get presentation style
@@ -209,7 +209,8 @@ exports.stats = function (req, res) {
  */
 function htmlToSlide(data) {
   // Split slides
-  data = data.replace(/<h[1-3]>/g, "</section><section>$&");
+  //console.log(data.replace(/<h[1-3].*>/ig, "</section><section>$&"));
+  data = data.replace(/<h[1-3].*>/ig, "</section><section>$&");
   // Insert <pre> before <code>
   data = data.replace(/<p><code>/g, '<pre><code>');
   data = data.replace(/<\/code><\/p>/g, '</code></pre>');
